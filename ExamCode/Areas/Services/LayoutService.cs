@@ -1,5 +1,7 @@
-﻿using ExamCode.Models;
+﻿using ExamCode.Data;
+using ExamCode.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExamCode.Areas.Services
 {
@@ -8,12 +10,14 @@ namespace ExamCode.Areas.Services
         private readonly UserManager<AppUser> _userManager;
         
         private readonly IHttpContextAccessor _httpContext;
+        private readonly DataContext _dataContext;
 
-        public LayoutService(UserManager<AppUser> userManager,IHttpContextAccessor httpContext)
+        public LayoutService(UserManager<AppUser> userManager,IHttpContextAccessor httpContext,DataContext dataContext)
         {
             _userManager = userManager;
            
             _httpContext = httpContext;
+            _dataContext = dataContext;
         }
 
         public async Task<AppUser> GetUser()
@@ -25,6 +29,10 @@ namespace ExamCode.Areas.Services
                 return appUser;
             }
             return null;
+        }
+        public  async Task<List<Setting>> GetSetting()
+        {
+            return await _dataContext.Settings.ToListAsync();
         }
 
     }

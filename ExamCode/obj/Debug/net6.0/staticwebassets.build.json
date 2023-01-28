@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UqGKgoCTU6FpWD75LJG0qWfxO52jz/aiYg1XRyRSKCI=",
+  "Hash": "oa1LTy/xCO7rpySLEshdpdzt7nkRbmV6bk9+1Jy0lvM=",
   "Source": "ExamCode",
   "BasePath": "_content/ExamCode",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Identity": "C:\\Users\\sabinaalizada\\source\\repos\\ExamCode\\ExamCode\\wwwroot\\admin\\js\\main.js",
+      "SourceId": "ExamCode",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sabinaalizada\\source\\repos\\ExamCode\\ExamCode\\wwwroot\\",
+      "BasePath": "_content/ExamCode",
+      "RelativePath": "admin/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\sabinaalizada\\source\\repos\\ExamCode\\ExamCode\\wwwroot\\admin\\js\\sb-admin-2.js",

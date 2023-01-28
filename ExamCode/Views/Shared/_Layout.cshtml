@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@inject ExamCode.Areas.Services.LayoutService service
+
+@{
+	List<Setting> settings = await service.GetSetting();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Senkadagala</title>
@@ -31,7 +37,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">
-					<img src="~/assets/img/pm-brand.png" title="PixelMock Logo">
+					<img src="~/assets/img/@settings.FirstOrDefault(x=>x.Key=="Icon")?.Value" title="PixelMock Logo">
 				</a>
 			</div>
 			<div class="collapse navbar-collapse ">
@@ -56,19 +62,19 @@
 			</div>
 			<div class="row">
 				<div class="col-md-5 contact-description">
-					<p>We are bunch of open minded people. So, we are really keen to know what you're thinking of our work.</p>
-					<p>Furthermore, if you're having some sort of work that we can assist you, a design project, web site, branding project... anything that matching our skill profile, send us a mail using below form. We will get back to you soon!</p>
+					<p>@settings.FirstOrDefault(x=>x.Key=="Desc1")?.Value</p>
+					<p>@settings.FirstOrDefault(x=>x.Key=="Desc2")?.Value</p>
 					<p>
 						<strong>
-							Tel : +94 71 350 6348<br>
-							Email : hello@pixelmock.com
+							Tel : @settings.FirstOrDefault(x=>x.Key=="Phone")?.Value<br>
+							Email : @settings.FirstOrDefault(x=>x.Key=="Email")?.Value
 						</strong>
 					</p>
 					<p class="sm-wrapper clearfix">
-						<a class="sm-container" href="http://www.twitter.com/pixelmock" target="_blank"></a>
-						<a class="sm-container sm-facebook" href="http://www.facebook.com/pixelmock" target="_blank"></a>
-						<a class="sm-container sm-linkedin" href="http://www.linkedin.com/company/pixelmock/" target="_blank"></a>
-						<a class="sm-container sm-gplus" href="https://plus.google.com/115525542717477884846" rel="publisher" target="_blank"></a>
+						<a class="sm-container" href="@settings.FirstOrDefault(x=>x.Key=="Twitter")?.Value" target="_blank"></a>
+						<a class="sm-container sm-facebook" href="@settings.FirstOrDefault(x=>x.Key=="Face")?.Value" target="_blank"></a>
+						<a class="sm-container sm-linkedin" href="@settings.FirstOrDefault(x=>x.Key=="In")?.Value" target="_blank"></a>
+						<a class="sm-container sm-gplus" href="@settings.FirstOrDefault(x=>x.Key=="Google")?.Value" rel="publisher" target="_blank"></a>
 						<a class="sm-container sm-skype" href="skype:pixelmock?userinfo"></a>
 						<div class="clear"></div>
 					</p>

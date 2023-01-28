@@ -1,13 +1,13 @@
-﻿@model List<Category>
+﻿@model PaginatedList<Category>
 @{
-    int count = 0;
+    int count = ((Model.ActivePage - 1) * 2);
 }
 
 <div class="container">
 
     <div class="row" style="align-items:center">
         <div style="justify-content:start">
-            <h1>Items</h1>
+            <h1>Categories</h1>
 
         </div>
         <div style="justify-content:start">
@@ -32,8 +32,8 @@
                         <th scope="row">@count</th>
                         <td>@item.Name</td>
                         <td>
-                            <a asp-action="update" asp-controller="category" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-primary">Update</a>
-                            <a asp-action="delete" asp-controller="category" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger">Delete</a>
+                            <a asp-action="update" asp-controller="category" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-primary ">Update</a>
+                            <a asp-action="delete" asp-controller="category" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger delete-button">Delete</a>
 
                         </td>
                     </tr>
@@ -43,4 +43,19 @@
             </tbody>
         </table>
     </div>
+</div>
+<div>
+    <nav aria-label="...">
+        <ul class="pagination">
+            
+            @for (int i = 1; i <= Model.TotalPageCount; i++)
+            {
+                <li class="page-item" aria-current="page">
+                    <a class="page-link " asp-route-page="@i">@i</a>
+                </li>
+            }
+
+            
+        </ul>
+    </nav>
 </div>

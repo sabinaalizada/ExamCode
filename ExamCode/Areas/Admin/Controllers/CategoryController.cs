@@ -1,11 +1,13 @@
 ﻿using ExamCode.Data;
 using ExamCode.Helpers;
 using ExamCode.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExamCode.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="Super Admin")]
     public class CategoryController : Controller
     {
         private readonly DataContext _dataContext;
@@ -16,10 +18,13 @@ namespace ExamCode.Areas.Admin.Controllers
             _dataContext = dataContext;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Category> Category = _dataContext.Category.ToList();
-            return View(Category);
+            var query = _dataContext.Category.AsQueryable();
+
+            var paginatedlist = PaginatedList<Category>.Create(query, 2, page);
+            
+            return View(paginatedlist);
         }
         public IActionResult Create()
         {

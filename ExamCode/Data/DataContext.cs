@@ -13,5 +13,6 @@ namespace ExamCode.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Setting> Settings { get; set; }
     }
 }

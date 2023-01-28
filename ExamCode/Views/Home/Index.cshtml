@@ -1,4 +1,8 @@
-﻿<div class="content" id="home">
+﻿
+
+@model List<Item>
+
+<div class="content" id="home">
 	<div class="section section1">
 		<div class="container">
 			<div class="row">
@@ -63,34 +67,17 @@
 <div class="section section3" id="services">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6 col-md-3 service-item">
-				<img src="~/assets/img/web-design.png" title="Web design" class="img-responsive">
-				<h3>Web Designing</h3>
+			@foreach (var item in Model)
+			{
+				<div class="col-sm-6 col-md-3 service-item">
+				<img src="~/assets/img/@item.ImageUrl" title="Web design" class="img-responsive">
+				<h3>@item.Category.Name</h3>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
+					@item.Desc
 				</p>
 			</div>
-			<div class="col-sm-6 col-md-3 service-item">
-				<img src="~/assets/img/web-dev.png" title="Web development" class="img-responsive">
-				<h3>Web Development</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
-				</p>
-			</div>
-			<div class="col-sm-6 col-md-3 service-item">
-				<img src="~/assets/img/print.png" title="Print media design" class="img-responsive">
-				<h3>Print Media Designing</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
-				</p>
-			</div>
-			<div class="col-sm-6 col-md-3 service-item">
-				<img src="~/assets/img/branding.png" title="Branding" class="img-responsive">
-				<h3>Branding</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
-				</p>
-			</div>
+			}
+			
 		</div>
 	</div>
 </div>
