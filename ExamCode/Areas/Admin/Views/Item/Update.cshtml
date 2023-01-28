@@ -1,0 +1,39 @@
+﻿@model Item
+
+
+<div class="container">
+    <div>
+        <h1>
+            Update Item
+        </h1>
+    </div>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3 col-3">
+                <label asp-for="formFile" class="form-label">formFile</label>
+                <input asp-for="formFile" class="form-control">
+                <span asp-validation-for="formFile"></span>
+            </div>
+            <div class="mb-3 col-3">
+                <label asp-for="Desc" class="form-label">Desc</label>
+                <textarea asp-for="Desc" placeholder="Leave a comment here" ></textarea>
+                <span asp-validation-for="Desc"></span>
+            </div>
+            <div class="mb-3 col-3">
+                <label asp-for="CategoryId" class="form-label">CategoryId</label>
+                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Category,"Id","Name"))"></select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+
+            
+
+            <div class="mb-3 col-3">
+                <div style="width=100%">
+                    <img style="max-width=100px" src="~/uploads/items/@Model.ImageUrl">
+                </div>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
